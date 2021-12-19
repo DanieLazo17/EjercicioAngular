@@ -23,6 +23,9 @@ export class PerfilComponent implements OnInit {
   btnAceptarDni!:boolean;
 
   constructor(private api: ApiService, private ruteo: Router, public servicioMensajes: MensajeService) {
+    if(this.servicioMensajes.MiUsuario == null){
+      this.salir();
+    }
     this.cliente = new Cliente();
     this.modificaCorreo = false;
     this.modificaNombre = false;
@@ -39,9 +42,6 @@ export class PerfilComponent implements OnInit {
       this.api.traerInfo(this.servicioMensajes.MiUsuario.idUsuario, datos).subscribe(
         respuesta => { this.mostrarInfo(respuesta)},
       );
-    }
-    if(this.servicioMensajes.MiUsuario == null){
-      this.salir();
     }
   }
 
