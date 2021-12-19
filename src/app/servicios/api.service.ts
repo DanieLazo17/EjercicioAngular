@@ -23,7 +23,7 @@ export class ApiService {
   }
 
   cambiarNombre(id:number, datos:FormData){
-    return this.clienteHttp.put(this.api + 'Cliente/Nombre/' + id, datos);
+    return this.clienteHttp.post(this.api + 'Cliente/Nombre/' + id, datos);
   }
 
   cambiarApellido(id:number, datos:FormData){
