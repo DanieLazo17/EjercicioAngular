@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+        <button type="button" (click)="salir()" class="btn btn-dark offset-md-10 col-md-2">Salir</button>
+    </div>
+    <div class="row">
+        <h2>Datos personales</h2>
+    </div>
+    <div class="row mt-2">
+        <div class="alert alert-info col-md-4" role="alert">
+            <h5>Correo:</h5>
+            <p *ngIf="!modificaCorreo">{{cliente.email}}</p>
+            <abbr title="Modificar"><i *ngIf="!modificaCorreo" class="fas fa-pen float-end" (click)="modificarCorreo()"></i></abbr>
+            <input *ngIf="modificaCorreo" type="text" name="email" id="email" class="mb-1" [(ngModel)]="cliente.email" (keyup)="validarCorreo()">
+            <button *ngIf="modificaCorreo" type="button" class="btn btn-dark me-1" (click)="cambiarCorreo()" [disabled]="btnAceptarCorreo">Aceptar</button>
+            <button *ngIf="modificaCorreo" type="button" class="btn btn-dark" (click)="noModificarCorreo()">Cancelar</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="alert alert-info col-md-4" role="alert">
+            <h5>Nombre:</h5>
+            <p *ngIf="!modificaNombre">{{cliente.nombre}}</p>
+            <abbr title="Modificar"><i *ngIf="!modificaNombre" class="fas fa-pen float-end" (click)="modificarNombre()"></i></abbr>
+            <input *ngIf="modificaNombre" type="text" name="nombre" id="nombre" class="mb-1" [(ngModel)]="cliente.nombre" (keyup)="validarNombre()">
+            <button *ngIf="modificaNombre" type="button" class="btn btn-dark me-1" (click)="cambiarNombre()" [disabled]="btnAceptarNombre">Aceptar</button>
+            <button *ngIf="modificaNombre" type="button" class="btn btn-dark" (click)="noModificarNombre()">Cancelar</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="alert alert-info col-md-4" role="alert">
+            <h5>Apellido:</h5>
+            <p *ngIf="!modificaApellido">{{cliente.apellido}}</p>
+            <abbr title="Modificar"><i *ngIf="!modificaApellido" class="fas fa-pen float-end" (click)="modificarApellido()"></i></abbr>
+            <input *ngIf="modificaApellido" type="text" name="apellido" id="apellido" class="mb-1" [(ngModel)]="cliente.apellido" (keyup)="validarApellido()">
+            <button *ngIf="modificaApellido" type="button" class="btn btn-dark me-1" (click)="cambiarApellido()" [disabled]="btnAceptarApellido">Aceptar</button>
+            <button *ngIf="modificaApellido" type="button" class="btn btn-dark" (click)="noModificarApellido()">Cancelar</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="alert alert-info col-md-4" role="alert">
+            <h5>DNI:</h5>
+            <p *ngIf="!modificaDni">{{cliente.dni}}</p>
+            <abbr title="Modificar"><i *ngIf="!modificaDni" class="fas fa-pen float-end" (click)="modificarDni()"></i></abbr>
+            <input *ngIf="modificaDni" type="number" name="dni" id="dni" class="mb-1" [(ngModel)]="cliente.dni" (keyup)="validarDni()">
+            <button *ngIf="modificaDni" type="button" class="btn btn-dark me-1" (click)="cambiarDni()" [disabled]="btnAceptarDni">Aceptar</button>
+            <button *ngIf="modificaDni" type="button" class="btn btn-dark" (click)="noModificarDni()">Cancelar</button>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <p>{{mensaje}}</p>
+        </div>
+    </div>
+</div>

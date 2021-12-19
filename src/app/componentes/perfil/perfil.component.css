@@ -1,0 +1,11 @@
+.alert p, i{
+    display: inline;
+}
+
+.alert abbr i:hover{
+    cursor: pointer;
+}
+
+.alert input{
+    display: block;
+}
